@@ -1,3 +1,6 @@
+# Check the current progress from here: [TODO.md](https://github.com/nasimic/recruitment-pipeline/blob/master/TODO.md)
+
+
 # Installation guide
 
 - Clone project
