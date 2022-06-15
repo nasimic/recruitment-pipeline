@@ -1,6 +1,6 @@
 # TODO Initial
 
-- [ ] Create Migrations
+- [x] Create Migrations
 - [ ] Create Models
 - [ ] Create Factories
 - [ ] Create Resources

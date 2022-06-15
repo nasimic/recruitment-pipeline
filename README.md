@@ -17,16 +17,19 @@ cp .env.example .env
 
 - Change DB configs in **.env** file as you wish
 ```
-php artisan optimize
-```
-```
 php artisan key:generate
+```
+```
+php artisan optimize
 ```
 ```
 php artisan migrate
 ```
 ```
 php artisan db:seed
+```
+```
+php artisan serve
 ```
 
 **Enjoy**
