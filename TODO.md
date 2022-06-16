@@ -1,10 +1,23 @@
-# TODO Initial
+# TODO
 
 - [x] Create Migrations
 - [x] Create Models
 - [x] Create Factories
 - [x] Create Resources
-- [ ] Finalize Skeleton
-    - Routes
-    - Controllers
-    - Tests
+
+- [ ] Skill
+    - [ ] Routes
+    - [ ] Controllers
+    - [ ] Tests
+
+- [ ] Status
+    - [ ] Routes
+    - [ ] Controllers
+    - [ ] Tests
+
+- [ ] Candidate
+    - [ ] Routes
+    - [ ] Controllers
+    - [ ] Tests
+
+- [ ] Seed initial data
