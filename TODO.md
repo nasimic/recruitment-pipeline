@@ -1,7 +1,7 @@
 # TODO Initial
 
 - [x] Create Migrations
-- [ ] Create Models
+- [x] Create Models
 - [ ] Create Factories
 - [ ] Create Resources
 - [ ] Finalize Skeleton
