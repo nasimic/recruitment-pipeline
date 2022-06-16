@@ -17,7 +17,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('candidate_id')->constrained()->onDelete('cascade');
             $table->foreignId('status_id')->constrained()->onDelete('cascade');
-            $table->foreignId('user_id')->constrained();
+            
+            // Uncomment this while developing Auth
+            // $table->foreignId('user_id')->constrained();
+            
             $table->text('comment')->nullable();
             $table->timestamps();
 
