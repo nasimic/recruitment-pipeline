@@ -5,10 +5,10 @@
 - [x] Create Factories
 - [x] Create Resources
 
-- [ ] Skill
-    - [ ] Routes
-    - [ ] Controllers
-    - [ ] Tests
+- [x] Skill
+    - [x] Routes
+    - [x] Controllers
+    - [x] Tests
 
 - [ ] Status
     - [ ] Routes
