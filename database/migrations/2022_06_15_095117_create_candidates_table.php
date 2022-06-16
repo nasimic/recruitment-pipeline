@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('candidates', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->foreignId('status_id')->constrained();
             $table->string('first_name');
             $table->string('last_name');

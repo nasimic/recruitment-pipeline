@@ -14,12 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('candidate_status', function (Blueprint $table) {
-            $table->increments('id');
-            $table->foreignId('candidate_id')->constrained();
-            $table->foreignId('status_id')->constrained();
+            $table->id();
+            $table->foreignId('candidate_id')->constrained()->onDelete('cascade');
+            $table->foreignId('status_id')->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->constrained();
             $table->text('comment')->nullable();
             $table->timestamps();
+
+            $table->unique(['candidate_id', 'status_id']);
         });
     }
 
