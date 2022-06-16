@@ -11,6 +11,8 @@ class Skill extends Model
 
     protected $guarded = [];
 
+    public $timestamps = false;
+
     public function candidates()
     {
         return $this->belongsToMany(Candidate::class);

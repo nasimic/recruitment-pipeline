@@ -11,6 +11,8 @@ class Status extends Model
 
     protected $guarded = [];
 
+    public $timestamps = false;
+
     // inverse of current status
     public function candidates()
     {
