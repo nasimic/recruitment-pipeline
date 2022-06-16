@@ -2,7 +2,7 @@
 
 - [x] Create Migrations
 - [x] Create Models
-- [ ] Create Factories
+- [x] Create Factories
 - [ ] Create Resources
 - [ ] Finalize Skeleton
     - Routes
