@@ -10,10 +10,10 @@
     - [x] Controllers
     - [x] Tests
 
-- [ ] Status
-    - [ ] Routes
-    - [ ] Controllers
-    - [ ] Tests
+- [x] Status
+    - [x] Routes
+    - [x] Controllers
+    - [x] Tests
 
 - [ ] Candidate
     - [ ] Routes
