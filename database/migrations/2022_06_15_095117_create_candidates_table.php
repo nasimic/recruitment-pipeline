@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('status_id')->constrained();
             $table->string('first_name');
             $table->string('last_name');
+            $table->string('position');
             $table->integer('min_salary')->nullable();
             $table->integer('max_salary')->nullable();
             $table->string('linkedin_url')->nullable();

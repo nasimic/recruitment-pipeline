@@ -22,6 +22,7 @@ class CandidateFactory extends Factory
             'status_id' => Status::factory(),
             'first_name' => $this->faker->firstName(),
             'last_name' => $this->faker->lastName(),
+            'position' => $this->faker->word(),
             'min_salary' => $this->faker->numberBetween(1000, 1500),
             'max_salary' => $this->faker->numberBetween(4500, 5000),
             'linkedin_url' => "https://linkedin.com/".$this->faker->slug(),
