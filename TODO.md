@@ -15,9 +15,9 @@
     - [x] Controllers
     - [x] Tests
 
-- [ ] Candidate
-    - [ ] Routes
-    - [ ] Controllers
-    - [ ] Tests
+- [x] Candidate
+    - [x] Routes
+    - [x] Controllers
+    - [x] Tests
 
 - [x] Seed initial data
