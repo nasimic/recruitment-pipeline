@@ -20,4 +20,4 @@
     - [ ] Controllers
     - [ ] Tests
 
-- [ ] Seed initial data
+- [x] Seed initial data
