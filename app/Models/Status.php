@@ -18,4 +18,10 @@ class Status extends Model
     {
         return $this->hasMany(Candidate::class);
     }
+
+    public function scopeDefault($query)
+    {
+        $query->where('is_default', 1);
+        return $query;
+    }
 }
