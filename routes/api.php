@@ -14,6 +14,9 @@ Route::get('/statuses', 'StatusController@index');
 // Candidates
 Route::get('/candidates', 'CandidateController@index');
 Route::post('/candidates', 'CandidateController@store');
-Route::post('/candidates/{candidate}/status', 'CandidateController@changeStatus');
+
 Route::get('/candidates/status/{status}', 'CandidateController@listByStatus');
+Route::post('/candidates/{candidate}/status', 'CandidateController@changeStatus');
+Route::get('/candidates/{candidate}/timeline', 'CandidateController@getTimeline');
+
 Route::get('/candidates/{candidate}', 'CandidateController@show');

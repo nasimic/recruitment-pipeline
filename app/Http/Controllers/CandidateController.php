@@ -57,4 +57,11 @@ class CandidateController extends Controller
 
         return CandidateResource::make($candidate->load('statuses'));
     }
+
+    public function getTimeline(Candidate $candidate)
+    {
+        $timeline = $candidate->statuses()->latest()->get();
+
+        return CandidateResource::collection($timeline);
+    }
 }

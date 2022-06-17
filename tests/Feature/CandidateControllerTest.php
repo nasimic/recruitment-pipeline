@@ -97,4 +97,41 @@ class CandidateControllerTest extends TestCase
         $response->assertJsonPath('data.status_id', $status2->id);
         $response->assertJsonPath('data.statuses.0.pivot.comment', 'Status changed');
     }
+
+    public function test_can_retrieve_timeline_of_candidate()
+    {
+        $status1 = Status::factory()->create();
+        $status2 = Status::factory()->create();
+        $status3 = Status::factory()->create();
+
+        $candidate = Candidate::factory()->create(['status_id' => $status1]);
+        
+        $candidate->statuses()->attach([
+            $status1->id => [
+                'comment' => 'Status set to 1'
+            ]
+        ]);
+
+
+        $candidate->update(['status_id' => $status2->id]);
+        $candidate->statuses()->attach([
+            $status2->id => [
+                'comment' => 'Status changed to 2'
+            ]
+        ]);
+        
+        $candidate->update(['status_id' => $status3->id]);
+        $candidate->statuses()->attach([
+            $status3->id => [
+                'comment' => 'Status changed to 3'
+            ]
+        ]);
+        
+
+        $response = $this->get('/api/candidates/'.$candidate->id.'/timeline');
+
+        $response->assertStatus(200);
+        $response->assertJsonCount(3, 'data');
+        $response->assertJsonPath('data.0.pivot.status_id', $status1->id);
+    }
 }
