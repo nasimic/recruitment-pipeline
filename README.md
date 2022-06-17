@@ -1,5 +1,9 @@
 # Check the current progress from here: [TODO.md](https://github.com/nasimic/recruitment-pipeline/blob/master/TODO.md)
 
+# To run tests
+```
+php artisan test
+```
 
 # Installation guide
 
@@ -15,7 +19,7 @@ composer install
 cp .env.example .env
 ```
 
-- Change DB configs in **.env** file as you wish
+- Change DB configs in **.env** file as you wish (mind DB_TEST_DATABASE for testing)
 ```
 php artisan key:generate
 ```
