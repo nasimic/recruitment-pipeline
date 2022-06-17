@@ -80,4 +80,21 @@ class CandidateControllerTest extends TestCase
 
         $response->assertJsonCount(3, 'data');
     }
+
+    public function test_can_change_status_with_comment()
+    {
+        $status1 = Status::factory()->create();
+        $status2 = Status::factory()->create();
+
+        $candidate = Candidate::factory()->create(['status_id' => $status1]);
+
+        $response = $this->postJson('/api/candidates/'.$candidate->id.'/status/', [
+            'status_id' => $status2->id,
+            'comment' => 'Status changed'
+        ]);
+
+        $response->assertStatus(200);
+        $response->assertJsonPath('data.status_id', $status2->id);
+        $response->assertJsonPath('data.statuses.0.pivot.comment', 'Status changed');
+    }
 }

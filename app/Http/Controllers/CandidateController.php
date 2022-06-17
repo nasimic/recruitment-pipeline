@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ChangeStatusRequest;
 use App\Http\Requests\StoreCandidateRequest;
 use App\Http\Resources\CandidateResource;
 use App\Models\Candidate;
@@ -40,5 +41,20 @@ class CandidateController extends Controller
         $candidates = Candidate::where('status_id', $status_id)->get();
 
         return CandidateResource::collection($candidates);
+    }
+
+    public function changeStatus(Candidate $candidate, ChangeStatusRequest $request)
+    {
+        $newStatus = Status::where('id',$request->status_id)->firstOrFail();
+
+        $candidate->status_id = $newStatus->id;
+
+        $candidate->statuses()->attach([
+            $newStatus->id => [
+                'comment' => $request->comment ?? null
+            ]
+        ]);
+
+        return CandidateResource::make($candidate->load('statuses'));
     }
 }
