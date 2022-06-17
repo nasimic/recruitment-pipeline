@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Models\Candidate;
 use App\Models\Skill;
 use App\Models\Status;
+use Database\Seeders\StatusSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -42,6 +43,8 @@ class CandidateControllerTest extends TestCase
 
     public function test_can_store_candidate()
     {
+        $this->seed(StatusSeeder::class);
+
         $skills = Skill::factory(3)->create();
         
         $response = $this->postJson('/api/candidates/', [
@@ -62,5 +65,19 @@ class CandidateControllerTest extends TestCase
         ]);
 
         $response->assertJsonPath('data.first_name', 'Nasimi');
+    }
+
+
+    public function test_can_retrieve_candidates_by_status()
+    {
+        $status = Status::factory()->create();
+
+        Candidate::factory(3)->create(['status_id'=> $status->id]);
+
+        $response = $this->get('/api/candidates/status/'.$status->id);
+
+        $response->assertStatus(200);
+
+        $response->assertJsonCount(3, 'data');
     }
 }

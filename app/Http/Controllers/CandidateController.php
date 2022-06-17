@@ -25,7 +25,7 @@ class CandidateController extends Controller
     public function store(StoreCandidateRequest $request)
     {   
         $initialStatus = Status::default()->first();
-        
+
         $candidate = Candidate::create($request->validated() + ['status_id'=> $initialStatus->id]);
 
         if($request->skills){
@@ -33,5 +33,12 @@ class CandidateController extends Controller
         }
 
         return CandidateResource::make($candidate);
+    }
+
+    public function listByStatus($status_id)
+    {
+        $candidates = Candidate::where('status_id', $status_id)->get();
+
+        return CandidateResource::collection($candidates);
     }
 }
